@@ -1,0 +1,22 @@
+props vs state
+
+props
+props gets passed to the component like function parameters
+because the parents usually passes down the props to the child component, 
+props are immutable, they are owned by the parent
+can be accessed by
+props-functional components
+this.props-class components
+props are read-only
+
+
+state
+state is managed within the component like variables declared in the function body
+state is managed within the component and hence the function has full control to change it
+can be accessed by
+useState Hook-functional components
+this.state-class components
+state is mutable
+
+
+both props and state hold information that influence the ui

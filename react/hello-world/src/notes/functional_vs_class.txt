@@ -1,0 +1,21 @@
+Functional Components
+functional components are basically javascript functions, 
+they can optionally recieve an object of properties(props) and returns html(jsx) which describes the ui
+use functional components as much as possible, if there is an option to create both class and functional components, always go for the functional components
+Advantages of using this over class components
+- absence of this keyword
+- Solution without using state: if you have a number of components each with their own private states,
+  maintainance and debugging your application becomes difficult, functional components tend to be without any complicated loguc and are mainly responsible for the ui
+- this is why they are also called stateless/dumb/presentational components
+
+
+Class Components
+they are more feature rich
+they can maintain their own private data - also called as state
+they can contain complex ui logic
+they provide lifecycle hooks
+stateful/smart/container components
+
+
+in each component we simply return some html but that is not html
+that is jsx

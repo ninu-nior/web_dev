@@ -1,0 +1,17 @@
+jsx
+javascript sml(jsx) - extension to the javascript language syntax
+with the react library, its an extension to write xml like code for elements and components
+just like xml, jsx have a tag name, attributes and children
+
+why do we need jsx?
+jsx is definitely not a necessity to write react applications,
+you can definitely use react without jsx
+but jsx makes your react code simpler and elegant
+it provides a syntax which is familiar to many developers
+jsx ultimately transpiles to pure javascript which is understood by the browsers
+
+//we need to import the react library while using jsx
+//jsx translates into react.createElement which in turn uses the react library
+
+
+

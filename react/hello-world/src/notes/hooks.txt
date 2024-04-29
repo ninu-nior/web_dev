@@ -1,0 +1,9 @@
+hooks
+new feature in version 16.7.0 which contradicts the difference mentioned
+class components had the privilige of using states and functional components were stateless
+however
+hooks-lets you use state and other react features without writing a class
+states and lifecycle hooks which were exclusive to class components can now be used in functional components as well
+
+-no breaking changes:they will not break any code in your app even with the stable release
+-completely opt in and 100 percent backwards compatible: if you don't want to no need to use hooks in your application
