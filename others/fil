@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filterable Gallery</title>
+  <style>
+    /* Style for gallery items */
+    .gallery-item {
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+      float: left;
+    }
+
+    /* Style for filter buttons */
+    .filter-button {
+      margin: 5px;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="gallery">
+    <!-- Gallery items -->
+    <div class="gallery-item nature">Nature</div>
+    <div class="gallery-item city">City</div>
+    <div class="gallery-item nature">Nature</div>
+    <div class="gallery-item city">City</div>
+    <!-- Add more items as needed -->
+
+    <!-- Filter buttons -->
+    <button class="filter-button" data-filter="all">All</button>
+    <button class="filter-button" data-filter="nature">Nature</button>
+    <button class="filter-button" data-filter="city">City</button>
+    <!-- Add more filter buttons as needed -->
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const filterButtons = document.querySelectorAll('.filter-button');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const filter = button.getAttribute('data-filter');
+
+          // Show all items if "All" button is clicked
+          if (filter === 'all') {
+            galleryItems.forEach(item => {
+              item.style.display = 'block';
+            });
+          } else {
+            // Hide items that don't match the filter and show items that do
+            galleryItems.forEach(item => {
+              if (item.classList.contains(filter)) {
+                item.style.display = 'block';
+              } else {
+                item.style.display = 'none';
+              }
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
