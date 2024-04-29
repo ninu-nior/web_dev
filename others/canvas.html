@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Select a shape</label>
+    <select id="shape">
+        <option value="circle">Circle</option>
+        <option value="rectangle">Rectangle</option>
+        <option value="triangle">Triangle</option>
+    </select>
+    <label for="color">Select a color:</label>
+    <input type="color" id="color" value="#000000">
+    <br>
+    <div id="circleInputs" style="display: none;">
+        <label for="circleRadius">Enter the radius of the circle:</label>
+        <input type="number" id="circleRadius" min="1" value="50">
+    </div>
+
+    <!-- Input fields for rectangle -->
+    <div id="rectangleInputs" style="display: none;">
+        <label for="rectWidth">Enter the width of the rectangle:</label>
+        <input type="number" id="rectWidth" min="1" value="100">
+        <br>
+        <label for="rectHeight">Enter the height of the rectangle:</label>
+        <input type="number" id="rectHeight" min="1" value="100">
+    </div>
+
+    <!-- Input fields for triangle -->
+    <div id="triangleInputs" style="display: none;">
+        <label for="triangleA">Enter the length of side a:</label>
+        <input type="number" id="triangleA" min="1" value="100">
+        <br>
+        <label for="triangleB">Enter the length of side b:</label>
+        <input type="number" id="triangleB" min="1" value="100">
+        <br>
+        <label for="triangleC">Enter the length of side c:</label>
+        <input type="number" id="triangleC" min="1" value="100">
+    </div>
+    <button id="drawButton">Draw Shape</button>
+
+    <canvas id="canvas" width="400" height="300"></canvas>
+    <script>
+        // Step 1: Get user inputs and store in JavaScript variables
+        var selectedShape = document.getElementById("shape").value;
+        var selectedColor = document.getElementById("color").value;
+
+        // Step 2: Show corresponding input fields based on selected shape
+        var shapeSelect = document.getElementById("shape");
+        shapeSelect.addEventListener("change", function() {
+            var circleInputs = document.getElementById("circleInputs");
+            var rectangleInputs = document.getElementById("rectangleInputs");
+            var triangleInputs = document.getElementById("triangleInputs");
+
+            // Hide all input fields
+            circleInputs.style.display = "none";
+            rectangleInputs.style.display = "none";
+            triangleInputs.style.display = "none";
+
+            // Show input fields corresponding to selected shape
+            var selectedValue = shapeSelect.value;
+            if (selectedValue === "circle") {
+                circleInputs.style.display = "block";
+            } else if (selectedValue === "rectangle") {
+                rectangleInputs.style.display = "block";
+            } else if (selectedValue === "triangle") {
+                triangleInputs.style.display = "block";
+            }
+            
+        });
+        document.getElementById("drawButton").addEventListener("click", function() {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            var color = document.getElementById("color").value;
+            var selectedShape = document.getElementById("shape").value;
+
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw shape based on selected shape
+            ctx.fillStyle = color;
+            switch (selectedShape) {
+                case "circle":
+                    var radius = parseInt(document.getElementById("circleRadius").value);
+                    ctx.beginPath();
+                    ctx.arc(canvas.width / 2, canvas.height / 2, radius, 0, Math.PI * 2);
+                    ctx.fill();
+                    break;
+                case "rectangle":
+                    var width = parseInt(document.getElementById("rectWidth").value);
+                    var height = parseInt(document.getElementById("rectHeight").value);
+                    ctx.fillRect((canvas.width - width) / 2, (canvas.height - height) / 2, width, height);
+                    break;
+                case "triangle":
+                    var a = parseInt(document.getElementById("triangleA").value);
+                    var b = parseInt(document.getElementById("triangleB").value);
+                    var c = parseInt(document.getElementById("triangleC").value);
+                    ctx.beginPath();
+                    ctx.moveTo(canvas.width / 2, (canvas.height / 2) - (Math.sqrt(3) * a / 3));
+                    ctx.lineTo((canvas.width / 2) - (b / 2), (canvas.height / 2) + (Math.sqrt(3) * a / 6));
+                    ctx.lineTo((canvas.width / 2) + (b / 2), (canvas.height / 2) + (Math.sqrt(3) * a / 6));
+                    ctx.closePath();
+                    ctx.fill();
+                    break;
+                default:
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>

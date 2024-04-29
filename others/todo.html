@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color:ghostwhite;
+    }
+    h1{
+        font-size: 50px;
+        font-weight: 1000;
+        font-family: monospace;
+        color: dodgerblue;
+        padding-left: 20px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    h4{
+        font-family: cursive;
+        padding-left:25px;
+        margin-top: 0;
+        color: darkslateblue;
+    }
+    #listItem {
+        padding-left: 20px;
+        height: 40px;
+        color: brown;
+        width: 400px;
+    }
+    
+    #task{
+        display: flex;
+        padding-left: 20px;
+    }
+    #addbutton{
+        font-family: cursive;
+        font-weight: 300;
+        height: 45px;
+        width: 150px;
+        background-color:orchid ;
+        border-color: aliceblue;
+    }
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding:0;
+    }
+    .menu{
+        display: flex;
+        float:left ;
+        a{
+            
+            text-decoration: none;
+            font-family: cursive;
+            padding-right: 20px;
+        }
+        a:hover{
+            color: black;
+        }
+    }
+    #navi{
+        margin-left: 20px;
+        margin-top: 50px;
+        /* padding-top: 10px; */
+    }
+    #menuitem{
+        display: flex;
+        border-radius: 20px;
+        align-items: center;
+        justify-content: center;
+        /* align-items: normal; */
+        background-color: white;
+        height: 40px;
+        width: 200px;
+    }
+    #spacer{
+        background-color: ghostwhite;
+        color: ghostwhite;
+    }
+    #menuitem:hover{
+        background-color: hotpink;
+    }
+    
+</style>
+<body>
+    <h1>
+        TO-DO LIST
+    </h1>
+    <h4>your daily task tracker</h4>
+    <div id="task">
+    <input type="text" name="listItem" id="listItem" placeholder="Enter a task">
+    <div id="spacer">  mdede</div>
+    <button id="addbutton" type="submit">Add</button>
+</div>
+<div id="navi">
+   <nav class ="menu">
+    <div id="menuitem"><a href="">All</a></div>
+    <div id="spacer">  mmmmm</div>
+    <div id="menuitem"><a href="">Completed</a></div>
+    <div id="spacer">  mmmmm</div>
+    <div id="menuitem"><a href="">pending</a></div>
+   </nav>
+</div>
+    
+    
+</body>
+</html>
